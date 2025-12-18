@@ -70,7 +70,7 @@ Build a **scalable ETL pipeline** that:
 ### Pipeline Architecture
 
 <!-- PLACEHOLDER: Add your architecture diagram here -->
-![Pipeline Architecture](./docs/architecture-diagram.png)
+![Pipeline Architecture](https://github.com/Maniesjr12/amazon-product-review/blob/main/Architecture/architecture-diagram.png)
 
 ### Medallion Architecture Layers
 ```
