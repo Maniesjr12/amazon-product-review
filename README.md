@@ -1,11 +1,11 @@
-# 🚀 Azure ETL Pipeline for Amazon Product Reviews Analytics
+# Azure ETL Pipeline for Amazon Product Reviews Analytics
 
 ![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
 ![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white)
 ![PySpark](https://img.shields.io/badge/PySpark-E25A1C?style=for-the-badge&logo=apache-spark&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-## 📋 Table of Contents
+## Table of Contents
 - [Project Overview](#-project-overview)
 - [Business Problem](#-business-problem)
 - [Architecture](#-architecture)
@@ -22,7 +22,7 @@
 
 ---
 
-## 🎯 Project Overview
+## Project Overview
 
 An end-to-end **Azure-based ETL data pipeline** that processes **571 million Amazon product reviews** and **48 million product metadata records** from 33 categories, transforming raw JSON data into an analytics-ready **Star Schema** data warehouse.
 
@@ -32,7 +32,7 @@ This project demonstrates modern data engineering best practices including:
 - **Cloud-native data processing** at scale
 - **Infrastructure as Code** principles
 
-### 🔑 Key Metrics
+### Key Metrics
 - **Data Volume:** 571M reviews, 48M products
 - **Categories Processed:** 2 (Electronics, Books) - scalable to all 33
 - **Pipeline Layers:** 3 (Bronze, Silver, Gold)
@@ -41,31 +41,31 @@ This project demonstrates modern data engineering best practices including:
 
 ---
 
-## 💼 Business Problem
+## Business Problem
 
 ### The Challenge
 Amazon's product review data is stored as **unstructured JSON files** that are:
-- ❌ **Difficult to query** (nested arrays and dictionaries)
-- ❌ **Not optimized** for analytics (no indexing or partitioning)
-- ❌ **Contains data quality issues** (duplicates, nulls, invalid values)
-- ❌ **Scattered across categories** (33 separate datasets)
+- **Difficult to query** (nested arrays and dictionaries)
+- **Not optimized** for analytics (no indexing or partitioning)
+- **Contains data quality issues** (duplicates, nulls, invalid values)
+- **Scattered across categories** (33 separate datasets)
 
 ### The Solution
 Build a **scalable ETL pipeline** that:
-- ✅ **Extracts** data from source URLs via Azure Data Factory
-- ✅ **Transforms** raw JSON into clean, normalized tables using PySpark
-- ✅ **Loads** data into a Star Schema optimized for business intelligence
-- ✅ **Enables** fast analytics queries for marketing, product, and data science teams
+- **Extracts** data from source URLs via Azure Data Factory
+- **Transforms** raw JSON into clean, normalized tables using PySpark
+- **Loads** data into a Star Schema optimized for business intelligence
+- **Enables** fast analytics queries for marketing, product, and data science teams
 
 ### Business Value
-- 📊 **Marketing:** Analyze sentiment trends and customer satisfaction
-- 🛍️ **Product Teams:** Identify top-rated products and improvement areas
-- 🤖 **Data Science:** Build recommendation systems and predictive models
-- 📈 **Executives:** Create dashboards showing KPIs and performance metrics
+- **Marketing:** Analyze sentiment trends and customer satisfaction
+- **Product Teams:** Identify top-rated products and improvement areas
+- **Data Science:** Build recommendation systems and predictive models
+- **Executives:** Create dashboards showing KPIs and performance metrics
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### Pipeline Architecture
 
@@ -75,7 +75,7 @@ Build a **scalable ETL pipeline** that:
 ### Medallion Architecture Layers
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    🥉 BRONZE LAYER                          │
+│                     BRONZE LAYER                          │
 │                   (Raw Data - Immutable)                     │
 ├─────────────────────────────────────────────────────────────┤
 │ • Format: Compressed JSON (.jsonl.gz)                       │
@@ -87,7 +87,7 @@ Build a **scalable ETL pipeline** that:
               PySpark Transformations (Databricks)
                            ↓
 ┌─────────────────────────────────────────────────────────────┐
-│                    🥈 SILVER LAYER                          │
+│                     SILVER LAYER                          │
 │                (Cleaned & Validated Data)                    │
 ├─────────────────────────────────────────────────────────────┤
 │ • Format: Parquet (columnar, compressed)                    │
@@ -100,7 +100,7 @@ Build a **scalable ETL pipeline** that:
          Dimensional Modeling (Star Schema)
                            ↓
 ┌─────────────────────────────────────────────────────────────┐
-│                    🥇 GOLD LAYER                            │
+│                     GOLD LAYER                            │
 │              (Business-Ready Star Schema)                    │
 ├─────────────────────────────────────────────────────────────┤
 │ • Format: Delta Lake (ACID transactions)                    │
@@ -113,7 +113,7 @@ Build a **scalable ETL pipeline** that:
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
@@ -154,7 +154,7 @@ Build a **scalable ETL pipeline** that:
 
 ---
 
-## 📊 Data Model
+## Data Model
 
 ### Star Schema Design
 
@@ -290,7 +290,7 @@ amazon-etl-pipeline/
 
 ---
 
-## 🔄 Pipeline Workflow
+## Pipeline Workflow
 
 ### Step-by-Step Process
 ```
@@ -364,7 +364,7 @@ amazon-etl-pipeline/
 
 ---
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### Prerequisites
 
@@ -373,7 +373,7 @@ amazon-etl-pipeline/
 - **Git** installed
 - Basic knowledge of Python, SQL, and cloud computing
 
-### 1️⃣ Azure Resource Setup
+### 1️ Azure Resource Setup
 ```bash
 # Login to Azure
 az login
@@ -411,13 +411,13 @@ az databricks workspace create \
   --sku trial
 ```
 
-### 2️⃣ Clone Repository
+### 2️ Clone Repository
 ```bash
 git clone https://github.com/yourusername/amazon-etl-pipeline.git
 cd amazon-etl-pipeline
 ```
 
-### 3️⃣ Configure Databricks
+### 3️ Configure Databricks
 
 1. **Import Notebooks:**
    - Open Databricks workspace
@@ -435,7 +435,7 @@ cd amazon-etl-pipeline
    - Get storage account access key from Azure Portal
    - Update `storage_account_key` in each notebook
 
-### 4️⃣ Configure Azure Data Factory
+### 4️ Configure Azure Data Factory
 
 1. **Create Linked Services:**
    - **HTTP Linked Service:** Connect to Amazon dataset source
@@ -449,7 +449,7 @@ cd amazon-etl-pipeline
    - `all_categories`: `["Books", "Electronics"]`
    - Adjust based on which categories you want to process
 
-### 5️⃣ Run the Pipeline
+### 5️ Run the Pipeline
 ```bash
 # Trigger ADF pipeline via Azure Portal
 # OR via Azure CLI:
@@ -459,7 +459,7 @@ az datafactory pipeline create-run \
   --resource-group rg-amazon-etl-pipeline
 ```
 
-### 6️⃣ Verify Results
+### 6️ Verify Results
 ```python
 # In Databricks notebook:
 # Check Gold layer tables
@@ -469,7 +469,7 @@ display(spark.read.format("delta").load("abfss://gold@adlsamazonetl.dfs.core.win
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 ### 1. **Parameterized Pipeline**
 - Dynamic category selection via ADF variables
@@ -502,7 +502,7 @@ display(spark.read.format("delta").load("abfss://gold@adlsamazonetl.dfs.core.win
 
 ---
 
-## 🧩 Challenges & Solutions
+##  Challenges & Solutions
 
 ### Challenge 1: Nested JSON Structures
 **Problem:** Raw data has arrays and dictionaries 3-4 levels deep
@@ -553,7 +553,7 @@ categories = json.loads(categories_param)
 
 ---
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 ### Phase 2: Scale to Production
 - [ ] Process all 33 categories (571M reviews)
@@ -586,29 +586,29 @@ categories = json.loads(categories_param)
 Through this project, I gained hands-on experience with:
 
 ### Technical Skills
-- ✅ **Cloud Data Engineering:** Designed and implemented end-to-end Azure data pipeline
-- ✅ **Big Data Processing:** Used Apache Spark (PySpark) to process millions of records
-- ✅ **Data Modeling:** Built Star Schema with fact and dimension tables
-- ✅ **ETL Development:** Created parameterized, reusable transformation logic
-- ✅ **Data Quality:** Implemented validation, deduplication, and error handling
+-  **Cloud Data Engineering:** Designed and implemented end-to-end Azure data pipeline
+-  **Big Data Processing:** Used Apache Spark (PySpark) to process millions of records
+-  **Data Modeling:** Built Star Schema with fact and dimension tables
+-  **ETL Development:** Created parameterized, reusable transformation logic
+-  **Data Quality:** Implemented validation, deduplication, and error handling
 
 ### Cloud Technologies
-- ✅ **Azure Data Factory:** Pipeline orchestration and scheduling
-- ✅ **Azure Data Lake Gen2:** Scalable data lake storage
-- ✅ **Azure Databricks:** Managed Spark clusters and notebooks
-- ✅ **Delta Lake:** ACID-compliant lakehouse architecture
+-  **Azure Data Factory:** Pipeline orchestration and scheduling
+-  **Azure Data Lake Gen2:** Scalable data lake storage
+-  **Azure Databricks:** Managed Spark clusters and notebooks
+-  **Delta Lake:** ACID-compliant lakehouse architecture
 
 ### Best Practices
-- ✅ **Medallion Architecture:** Organized data into Bronze/Silver/Gold layers
-- ✅ **Dimensional Modeling:** Implemented Kimball methodology
-- ✅ **Cost Optimization:** Minimized Azure spending with smart resource choices
-- ✅ **Documentation:** Created comprehensive README and code comments
+-  **Medallion Architecture:** Organized data into Bronze/Silver/Gold layers
+-  **Dimensional Modeling:** Implemented Kimball methodology
+-  **Cost Optimization:** Minimized Azure spending with smart resource choices
+-  **Documentation:** Created comprehensive README and code comments
 
 ### Soft Skills
-- ✅ **Problem-Solving:** Debugged complex data quality and performance issues
-- ✅ **Project Management:** Broke down large project into manageable phases
-- ✅ **Communication:** Documented technical decisions and trade-offs
-- ✅ **Presentation:** Prepared for technical interviews and capstone defense
+-  **Problem-Solving:** Debugged complex data quality and performance issues
+-  **Project Management:** Broke down large project into manageable phases
+-  **Communication:** Documented technical decisions and trade-offs
+-  **Presentation:** Prepared for technical interviews and capstone defense
 
 ---
 
@@ -626,7 +626,7 @@ Through this project, I gained hands-on experience with:
 
 ---
 
-## 📖 References & Resources
+##  References & Resources
 
 ### Documentation
 - [Amazon Reviews 2023 Dataset](https://amazon-reviews-2023.github.io/)
@@ -642,7 +642,7 @@ Through this project, I gained hands-on experience with:
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -655,22 +655,16 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 👤 Author
+##  Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Name](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
+- GitHub: @maniesjr12(https://github.com/maniesjr12)
+- LinkedIn: Muhammed Sulaimon([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/muhammed-sulaimon-7480b21b0/))
+- Email: sulaimonmuhammed707@gmail.com
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **Amazon** for providing the open-source dataset
 - **Microsoft Azure** for $200 in free credits for students
@@ -680,27 +674,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📈 Project Status
-
-✅ **Phase 1 Complete:** Core ETL pipeline with 2 categories  
-🚧 **Phase 2 In Progress:** Scaling to all 33 categories  
-📋 **Phase 3 Planned:** Advanced analytics and ML integration
-
----
-
-## 💬 Questions or Feedback?
-
-If you have questions or feedback about this project, please:
-- Open an [Issue](https://github.com/yourusername/amazon-etl-pipeline/issues)
-- Start a [Discussion](https://github.com/yourusername/amazon-etl-pipeline/discussions)
-- Reach out via [email](mailto:your.email@example.com)
-
----
-
-<div align="center">
-
 **⭐ If you found this project helpful, please give it a star! ⭐**
 
-Made with ❤️ and ☕ by [Your Name]
 
 </div>
